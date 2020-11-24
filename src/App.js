@@ -1,34 +1,56 @@
 import React, { Component } from "react";
-import "./App.css";
 import "./nprogress.css";
+import "./App.css";
 import EventList from "./EventList";
 import CitySearch from "./CitySearch";
-import NumberofEvents from "./NumberOfEvents";
+import NumberOfEvents from "./NumberOfEvents";
 import { extractLocations, getEvents } from "./api";
 
 class App extends Component {
   state = {
     events: [],
-    locations: []
+    locations: [],
+    numberOfEvents: 32,
+    currentLocation: "all"
   };
 
-  updateEvents = location => {
-    getEvents().then(events => {
-      const locationEvents =
-        location === "all"
-          ? events
-          : events.filter(event => event.location === location);
-      this.setState({
-        events: locationEvents
+  updateEvents = (location, eventCount) => {
+    const { currentLocation, numberOfEvents } = this.state;
+    if (location) {
+      getEvents().then(events => {
+        const locationEvents =
+          location === "all"
+            ? events
+            : events.filter(event => event.location === location);
+        const filteredEvents = locationEvents.slice(0, numberOfEvents);
+        this.setState({
+          events: filteredEvents,
+          currentLocation: location
+        });
       });
-    });
+    } else {
+      getEvents().then(events => {
+        const locationEvents =
+          currentLocation === "all"
+            ? events
+            : events.filter(event => event.location === currentLocation);
+        const filteredEvents = locationEvents.slice(0, eventCount);
+        this.setState({
+          events: filteredEvents,
+          numberOfEvents: eventCount
+        });
+      });
+    }
   };
 
   componentDidMount() {
     this.mounted = true;
     getEvents().then(events => {
       if (this.mounted) {
-        this.setState({ events, locations: extractLocations(events) });
+        this.setState({
+          events: events,
+          locations: extractLocations(events)
+        });
       }
     });
   }
@@ -44,8 +66,11 @@ class App extends Component {
           locations={this.state.locations}
           updateEvents={this.updateEvents}
         />
+        <NumberOfEvents
+          numberOfEvents={this.state.numberOfEvents}
+          updateEvents={this.updateEvents}
+        />
         <EventList events={this.state.events} />
-        <NumberofEvents />
       </div>
     );
   }
