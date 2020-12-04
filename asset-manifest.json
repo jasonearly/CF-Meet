@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/CF-Meet/static/css/main.a05559b6.chunk.css",
-    "main.js": "/CF-Meet/static/js/main.7c2e6540.chunk.js",
-    "main.js.map": "/CF-Meet/static/js/main.7c2e6540.chunk.js.map",
+    "main.js": "/CF-Meet/static/js/main.bb5c5c63.chunk.js",
+    "main.js.map": "/CF-Meet/static/js/main.bb5c5c63.chunk.js.map",
     "runtime-main.js": "/CF-Meet/static/js/runtime-main.c698e05a.js",
     "runtime-main.js.map": "/CF-Meet/static/js/runtime-main.c698e05a.js.map",
     "static/js/2.1e297ff2.chunk.js": "/CF-Meet/static/js/2.1e297ff2.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.094342c8.chunk.js": "/CF-Meet/static/js/3.094342c8.chunk.js",
     "static/js/3.094342c8.chunk.js.map": "/CF-Meet/static/js/3.094342c8.chunk.js.map",
     "index.html": "/CF-Meet/index.html",
-    "precache-manifest.b71a09d429cc0d7bdc78337eca478524.js": "/CF-Meet/precache-manifest.b71a09d429cc0d7bdc78337eca478524.js",
+    "precache-manifest.e6336d205070a4a8fe08ab2a58a923d6.js": "/CF-Meet/precache-manifest.e6336d205070a4a8fe08ab2a58a923d6.js",
     "service-worker.js": "/CF-Meet/service-worker.js",
     "static/css/main.a05559b6.chunk.css.map": "/CF-Meet/static/css/main.a05559b6.chunk.css.map",
     "static/js/2.1e297ff2.chunk.js.LICENSE.txt": "/CF-Meet/static/js/2.1e297ff2.chunk.js.LICENSE.txt"
@@ -19,6 +19,6 @@
     "static/js/runtime-main.c698e05a.js",
     "static/js/2.1e297ff2.chunk.js",
     "static/css/main.a05559b6.chunk.css",
-    "static/js/main.7c2e6540.chunk.js"
+    "static/js/main.bb5c5c63.chunk.js"
   ]
 }
