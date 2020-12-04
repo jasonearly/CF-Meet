@@ -48,14 +48,23 @@ export const getEvents = async () => {
     return mockData;
   }
 
+  // if (!navigator.onLine) {
+  //   const events = localStorage.getItem("lastEvents");
+  //   NProgress.done();
+  //   return {
+  //     events: JSON.parse(events).events,
+  //     locations: extractLocations(JSON.parse(events).events)
+  //   };
+  // }
+
   if (!navigator.onLine) {
-    const events = localStorage.getItem("lastEvents");
-    NProgress.done();
-    return {
-      events: JSON.parse(events).events,
-      locations: extractLocations(JSON.parse(events).events)
-    };
-  }
+  this.setState({
+    infoText:
+      "You are currently offline. The displayed events might not be up to date. The search feature has also been disabled."
+  });
+  const events = localStorage.getItem("lastEvents");
+  return JSON.parse(events);
+}
 
   const token = await getAccessToken();
 
